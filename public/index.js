@@ -1,5 +1,6 @@
 var clock, calen;
 var month, weekday;
+var nextEvent;
 var jj;
 
 window.addEventListener('load', onLoad);
@@ -9,12 +10,16 @@ function onLoad(){
 	calen = document.querySelector("#calendar");
 
 	month   = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-							 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+						 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 	weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 	$.getJSON("events.json", function(json){
+		jj = json;
 		createCalendar(json);
 	})
+
+	document.querySelector("#join").disabled = true;
+	updateTime();
 
 	window.setInterval(updateTime, 1000);
 }
@@ -59,17 +64,29 @@ function createCalendar(json){
 		// get events
 		for (let j = 0; j < json.events.length; j++) {
 			if(json.events[j].date == day && json.events[j].month == mon+1 && json.events[j].year == yea){
+				// insert separation and create elements
 				col.appendChild(document.createElement("BR"));
-				p = document.createElement("P");
+				p  = document.createElement("P");
+				p.classList.add("cal_event");
 				p2 = document.createElement("h1");
+				p2.classList.add("calName_event");
+				// get data
 				let evnt = json.events[j].start +" - " +json.events[j].end;
 				let evntName = json.events[j].name;
 				p2.textContent = evntName;
 				p.textContent = evnt;
-				p.classList.add("cal_event");
-				p2.classList.add("calName_event");
+				// append data
 				col.appendChild(p);
 				col.appendChild(p2);
+				// check if it's the next event
+				let evntTime = json.events[j].start.split(":");
+				let evntDate = new Date(yea,mon,day,evntTime[0],evntTime[1]);
+				if(nextEvent == null){
+					nextEvent = evntDate;
+				} else if(nextEvent - evntDate > 0){
+					nextEvent = evntDate;
+				} else {
+				}
 			}
 		}
 	}
@@ -77,6 +94,7 @@ function createCalendar(json){
 
 function updateTime(){
 	let d = new Date();
+	// parse clock time
 	let yr  = d.getFullYear();
 	let mon = month[d.getMonth()];
 	let day = d.getDate();
@@ -89,5 +107,11 @@ function updateTime(){
 	let sec = d.getSeconds();
 	if(sec<10){ sec = "0"+sec};
 
-	clock.textContent = mon +" " +day +", " +yr +" " +hr +":" +min +":" +sec;;
+	clock.textContent = mon +" " +day +", " +yr +" " +hr +":" +min +":" +sec;
+
+	// compare to next event to enable/disable button
+	let play_button = document.querySelector("#join");
+	if(nextEvent - d <= 0){
+		play_button.disabled = false;
+	}
 }

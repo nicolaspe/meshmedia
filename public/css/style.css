@@ -51,18 +51,17 @@ div{
 	text-decoration: none;
 	color: white;
 }
-
-.play_button:hover{
-	background: #2CB5AB;
-	border: none;
-	font-weight: lighter;
-	/* border-radius: 10px; */
+.play_button:enabled:hover{
 	box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
-
-	padding: 10px 30px 10px 30px;
-	font-size: 1.8em;
-	text-decoration: none;
-	color: white;
+	cursor: pointer;
+}
+.play_button:disabled{
+	background: #dddddd;
+	cursor: not-allowed;
+}
+.play_button:disabled:hover{
+	background: #dddddd;
+	cursor: not-allowed;
 }
 
 .calendar{
