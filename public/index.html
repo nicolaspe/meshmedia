@@ -22,9 +22,8 @@
 
 		<br>
 
-		<!-- <div class="content">
-			<video id="videoPlayer" height="480" autoplay="autoplay"></video>
-		</div> -->
+		<div class="content" id="video_div">
+		</div>
 
 		<div class="content calendar" id="calendar">
 			<div style="font-weight: normal; font-variant: all-small-caps; font-size:1.5em">
@@ -59,6 +58,8 @@
 		video.height = "480";
 		video.autoplay = "autoplay";
 		video.appendChild(ss);
+
+		document.querySelector("#video_div").appendChild(video);
 	}
 
 
