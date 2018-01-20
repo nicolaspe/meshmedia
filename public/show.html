@@ -24,10 +24,13 @@
 		</header>
 		<br><br><br><br><br>
 		<div class="content">
-			<video id="videoPlayer" height="480" autoplay="autoplay" onloadedmetadata="onVidLoad()"></video>
+			<video id="videoPlayer" height="480" autoplay="autoplay" controls onloadedmetadata="onVidLoad()"></video>
 		</div>
 		
 		<script type="text/javascript">
+			video = document.querySelector("#videoPlayer");
+			let supposedTime = 0;
+
 			window.addEventListener('load', loadVid);
 
 			function loadVid(){
@@ -35,8 +38,25 @@
 				let ss = document.createElement("SOURCE");
 				ss.type = "video/mp4";
 				ss.src = src
-				document.querySelector("#videoPlayer").appendChild(ss);
+				video.appendChild(ss);
 			}
+
+			// from https://stackoverflow.com/questions/11903545/how-to-disable-seeking-with-html5-video-tag
+			video.addEventListener('timeupdate', function() {
+  				if (!video.seeking) {
+        			supposedCurrentTime = video.currentTime;
+  				}
+			});
+			video.addEventListener('seeking', function() {
+  				// guard agains infinite recursion:
+  				// user seeks, seeking is fired, currentTime is modified, seeking is fired, current time is modified, ....
+  				var delta = video.currentTime - supposedCurrentTime;
+  				if (Math.abs(delta) > 0.01) {
+    				console.log("Seeking is disabled");
+    				video.currentTime = supposedCurrentTime;
+  				}
+			});
+
 		</script>
 	</body>
 </html>
