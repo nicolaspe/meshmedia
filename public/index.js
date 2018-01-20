@@ -63,15 +63,15 @@ function createCalendar(json){
 			if(json.events[j].date == day && json.events[j].month == mon+1 && json.events[j].year == yea){
 				col.appendChild(document.createElement("BR"));
 				p = document.createElement("P");
-				h1 = document.createElement("h1");
+				p2 = document.createElement("h1");
 				let evnt = json.events[j].start +" - " +json.events[j].end;
 				let evntName = json.events[j].name;
-				h1.textContent = evntName;
+				p2.textContent = evntName;
 				p.textContent = evnt;
 				p.classList.add("cal_event");
-				h1.classList.add("calName_event");
+				p2.classList.add("calName_event");
 				col.appendChild(p);
-				col.appendChild(h1);
+				col.appendChild(p2);
 			}
 		}
 	}
