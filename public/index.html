@@ -41,13 +41,10 @@
 	</body>
 
 <script type="text/javascript">
-	
-	let clicked = false; 
+	let clicked = false;
 	let button = document.getElementById('join');
-	console.log(clicked);
 
 	button.addEventListener('click', function(evt) {
-	
 		if (clicked == false) {
 			let cal = document.getElementById('calendar');
 			cal.style.visibility = "hidden";
@@ -67,7 +64,7 @@
 			document.querySelector("#video_div").appendChild(video);
 			button.innerText = "Quit Show";
 
-			clicked = true; 
+			clicked = true;
 
 		} else if (clicked == true) {
 			let video = document.getElementById("videoPlayer");
@@ -79,9 +76,6 @@
 			clicked = false;
 		}
 	});
-
-
-
 
 	function hideCal() {
 		let button = document.getElementById("join");
@@ -108,7 +102,7 @@
 			button.innerText = "Quit Show";
 			// button.setAttribute("boo", "true");
 			console.log(boo);
-		} 
+		}
 
 		if (boo == "true") {
 			let video = document.getElementById("videoPlayer");
@@ -116,10 +110,6 @@
 			button.innerText = "Join Show";
 
 		}
-
 	}
-
-
-
 </script>
 </html>

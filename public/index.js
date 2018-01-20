@@ -1,7 +1,6 @@
 var clock, calen;
 var month, weekday;
 var nextEvent;
-var jj;
 
 window.addEventListener('load', onLoad);
 
@@ -14,7 +13,6 @@ function onLoad(){
 	weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 	$.getJSON("events.json", function(json){
-		jj = json;
 		createCalendar(json);
 	})
 
