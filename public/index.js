@@ -41,7 +41,7 @@ function createCalendar(json){
 		if(i == 0){
 			text = "Today";
 		} else{
-			text = weekday[(wday+i)%7];
+			text = weekday[(wday%7)];
 		}
 		p = document.createElement("P");
 		p.classList.add("cal_weekday");
