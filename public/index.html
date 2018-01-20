@@ -47,7 +47,7 @@
 	console.log(clicked);
 
 	button.addEventListener('click', function(evt) {
-		console.log(clicked);
+	
 		if (clicked == false) {
 			let cal = document.getElementById('calendar');
 			cal.style.visibility = "hidden";
@@ -67,18 +67,17 @@
 			document.querySelector("#video_div").appendChild(video);
 			button.innerText = "Quit Show";
 
-			// clicked = true; 
-		}
+			clicked = true; 
 
-		if (clicked == true) {
+		} else if (clicked == true) {
 			let video = document.getElementById("videoPlayer");
 			document.querySelector("#video_div").removeChild(video);
 			button.innerText = "Join Show";
+			let cal = document.getElementById('calendar');
+			cal.style.visibility = "visible";
 
 			clicked = false;
 		}
-
-
 	});
 
 
