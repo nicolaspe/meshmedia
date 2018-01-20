@@ -1,12 +1,16 @@
 var clock, calen;
 var month, weekday;
 var nextEvent;
+var clicked, button;
 
 window.addEventListener('load', onLoad);
 
 function onLoad(){
 	clock = document.querySelector("#date");
 	calen = document.querySelector("#calendar");
+
+	clicked = false;
+	button = document.getElementById('join');
 
 	month   = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
 						 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -20,6 +24,47 @@ function onLoad(){
 	updateTime();
 
 	window.setInterval(updateTime, 1000);
+
+	button.addEventListener('click', function(evt) {
+		if (clicked == false) {
+			let cal = document.getElementById('calendar');
+			cal.style.visibility = "hidden";
+
+			//create video
+			let src = window.location.protocol + "//" + window.location.host + "/video";
+			let ss = document.createElement("SOURCE");
+			ss.type = "video/mp4";
+			ss.src = src;
+
+			let video = document.createElement("video");
+			video.id = "videoPlayer";
+			video.height = "480";
+			video.autoplay = "autoplay";
+			video.appendChild(ss);
+
+			//calculate starting point
+			let d = new Date();
+			let dif_h = d.getHours()   - nextEvent.getHours();
+			let dif_m = d.getMinutes() - nextEvent.getMinutes();
+			let dif_s = d.getSeconds() - nextEvent.getSeconds();
+			let startPoint = dif_s + dif_m*60 + dif_h*60*60;
+			video.currentTime = startPoint;
+
+			document.querySelector("#video_div").appendChild(video);
+			button.innerText = "Quit Show";
+
+			clicked = true;
+
+		} else if (clicked == true) {
+			let video = document.getElementById("videoPlayer");
+			document.querySelector("#video_div").removeChild(video);
+			button.innerText = "Join Show";
+			let cal = document.getElementById('calendar');
+			cal.style.visibility = "visible";
+
+			clicked = false;
+		}
+	});
 }
 
 function createCalendar(json){
@@ -90,6 +135,40 @@ function createCalendar(json){
 	}
 }
 
+function hideCal() {
+	let button = document.getElementById("join");
+	let boo = button.getAttribute("boo");
+
+	if (boo == "false") {
+		//hide calender
+		let cal = document.getElementById('calendar');
+		cal.style.visibility = "hidden";
+	
+		//create video
+		let src = window.location.protocol + "//" + window.location.host + "/video";
+		let ss = document.createElement("SOURCE");
+		ss.type = "video/mp4";
+		ss.src = src;
+
+		let video = document.createElement("video");
+		video.id = "videoPlayer";
+		video.height = "480";
+		video.autoplay = "autoplay";
+		video.appendChild(ss);
+
+		document.querySelector("#video_div").appendChild(video);
+		button.innerText = "Quit Show";
+		// button.setAttribute("boo", "true");
+		console.log(boo);
+	}
+
+	if (boo == "true") {
+		let video = document.getElementById("videoPlayer");
+		document.querySelector("#video_div").removeChild(video);
+		button.innerText = "Join Show";
+	}
+}
+
 function updateTime(){
 	let d = new Date();
 	// parse clock time
@@ -113,3 +192,5 @@ function updateTime(){
 		play_button.disabled = false;
 	}
 }
+
+

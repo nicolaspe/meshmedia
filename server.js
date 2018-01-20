@@ -32,14 +32,6 @@ app.get('/video', function(req, res) {
 
     	res.writeHead(206, head);
     	file.pipe(res);
-    	// res.writeHead(206, head);
-
-    	// io.on('connection', function(socket) {
-    	// 	stream.pipe(res);
-    	// 	console.log("socket");
-    	// });
-
-    	// file.pipe(res);
 	} else {
 		const head = {
 			'Content-Length': fileSize,
@@ -50,14 +42,6 @@ app.get('/video', function(req, res) {
 		fs.createReadStream(path).pipe(res)
 	}
 });
-
-
-
-io.on('connection', function(socket) {
-    stream.pipe(res);
-   	console.log("socket");
-});
-
 
 
 //anonymous function
