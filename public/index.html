@@ -17,10 +17,14 @@
 		</header>
 		<br><br><br><br><br>
 		<div class="content button">
-			<a href="show.html" class="play_button">Join Show</a>
+			<button type="button" class="play_button" onclick="hideCal()">Join Show</button>
 		</div>
 
 		<br>
+
+		<!-- <div class="content">
+			<video id="videoPlayer" height="480" autoplay="autoplay"></video>
+		</div> -->
 
 		<div class="content calendar" id="calendar">
 			<div style="font-weight: normal; font-variant: all-small-caps; font-size:1.5em">
@@ -37,12 +41,25 @@
 
 	</body>
 
-<script src="/socket.io/socket.io.js"></script>
-<script src="/js/socket.io-stream.js"></script>
-<script src="/js/jquery.js"></script>
-
 <script type="text/javascript">
 
+	function hideCal() {
+		//hide calender
+		let cal = document.getElementById('calendar');
+		cal.style.visibility = "hidden";
+
+		//create video
+		let src = window.location.protocol + "//" + window.location.host + "/video";
+		let ss = document.createElement("SOURCE");
+		ss.type = "video/mp4";
+		ss.src = src
+
+		let video = document.createElement("video");
+		video.id = "videoPlayer";
+		video.height = "480";
+		video.autoplay = "autoplay";
+		video.appendChild(ss);
+	}
 
 
 </script>

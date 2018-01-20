@@ -13,8 +13,6 @@ function onLoad(){
 	weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 	$.getJSON("events.json", function(json){
-		console.log(json);
-		jj = json;
 		createCalendar(json);
 	})
 
