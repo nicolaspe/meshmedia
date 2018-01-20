@@ -1,7 +1,7 @@
 var clock, calen;
 var month, weekday;
 var nextEvent;
-var clicked, button;
+var clicked, button, video;
 
 window.addEventListener('load', onLoad);
 
@@ -13,18 +13,25 @@ function onLoad(){
 	button = document.getElementById('join');
 
 	month   = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-						 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+				"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 	weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 	$.getJSON("events.json", function(json){
 		createCalendar(json);
-	})
+	});
 
 	document.querySelector("#join").disabled = true;
 	updateTime();
 
 	window.setInterval(updateTime, 1000);
 
+	video = document.createElement("video");
+	video.id = "videoPlayer";
+	video.height = "480";
+	video.autoplay = "autoplay";
+	video.controls = "controls"
+
+	// events
 	button.addEventListener('click', function(evt) {
 		if (clicked == false) {
 			let cal = document.getElementById('calendar');
@@ -35,11 +42,6 @@ function onLoad(){
 			let ss = document.createElement("SOURCE");
 			ss.type = "video/mp4";
 			ss.src = src;
-
-			let video = document.createElement("video");
-			video.id = "videoPlayer";
-			video.height = "480";
-			video.autoplay = "autoplay";
 			video.appendChild(ss);
 
 			//calculate starting point
@@ -49,6 +51,7 @@ function onLoad(){
 			let dif_s = d.getSeconds() - nextEvent.getSeconds();
 			let startPoint = dif_s + dif_m*60 + dif_h*60*60;
 			video.currentTime = startPoint;
+			video.play();
 
 			document.querySelector("#video_div").appendChild(video);
 			button.innerText = "Quit Show";
@@ -64,6 +67,22 @@ function onLoad(){
 
 			clicked = false;
 		}
+	});
+
+	// from https://stackoverflow.com/questions/11903545/how-to-disable-seeking-with-html5-video-tag
+	video.addEventListener('timeupdate', function() {
+  		if (!video.seeking) {
+    		supposedCurrentTime = video.currentTime;
+  		}
+	});
+	video.addEventListener('seeking', function() {
+  		// guard agains infinite recursion:
+  		// user seeks, seeking is fired, currentTime is modified, seeking is fired, current time is modified, ....
+  		var delta = video.currentTime - supposedCurrentTime;
+  		if (Math.abs(delta) > 0.01) {
+    		console.log("Seeking is disabled");
+    		video.currentTime = supposedCurrentTime;
+  		}
 	});
 }
 
