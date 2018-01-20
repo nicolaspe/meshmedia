@@ -8,7 +8,7 @@
 		<script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
 
 		<script type="text/javascript">
-            function onLoad() {
+            function onVidLoad() {
                 var sec = parseInt(document.location.search.substr(1));
                 
                 if (!isNaN(sec))
@@ -24,7 +24,7 @@
 		</header>
 		<br><br><br><br><br>
 		<div class="content">
-			<video id="videoPlayer" height="480" autoplay="autoplay" onloadedmetadata="onLoad()"></video>
+			<video id="videoPlayer" height="480" autoplay="autoplay" onloadedmetadata="onVidLoad()"></video>
 		</div>
 		
 		<script type="text/javascript">
