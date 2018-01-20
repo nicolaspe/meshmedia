@@ -17,7 +17,7 @@
 		</header>
 		<br><br><br><br><br>
 		<div class="content button">
-			<button type="button" class="play_button" onclick="hideCal()">Join Show</button>
+			<button type="button" id="join" class="play_button">Join Show</button>
 		</div>
 
 		<br>
@@ -41,26 +41,85 @@
 	</body>
 
 <script type="text/javascript">
+	
+	let clicked = false; 
+	let button = document.getElementById('join');
+	console.log(clicked);
+
+	button.addEventListener('click', function(evt) {
+		console.log(clicked);
+		if (clicked == false) {
+			let cal = document.getElementById('calendar');
+			cal.style.visibility = "hidden";
+
+			//create video
+			let src = window.location.protocol + "//" + window.location.host + "/video";
+			let ss = document.createElement("SOURCE");
+			ss.type = "video/mp4";
+			ss.src = src;
+
+			let video = document.createElement("video");
+			video.id = "videoPlayer";
+			video.height = "480";
+			video.autoplay = "autoplay";
+			video.appendChild(ss);
+
+			document.querySelector("#video_div").appendChild(video);
+			button.innerText = "Quit Show";
+
+			// clicked = true; 
+		}
+
+		if (clicked == true) {
+			let video = document.getElementById("videoPlayer");
+			document.querySelector("#video_div").removeChild(video);
+			button.innerText = "Join Show";
+
+			clicked = false;
+		}
+
+
+	});
+
+
+
 
 	function hideCal() {
-		//hide calender
-		let cal = document.getElementById('calendar');
-		cal.style.visibility = "hidden";
+		let button = document.getElementById("join");
+		let boo = button.getAttribute("boo");
 
-		//create video
-		let src = window.location.protocol + "//" + window.location.host + "/video";
-		let ss = document.createElement("SOURCE");
-		ss.type = "video/mp4";
-		ss.src = src
+		if (boo == "false") {
+			//hide calender
+			let cal = document.getElementById('calendar');
+			cal.style.visibility = "hidden";
 
-		let video = document.createElement("video");
-		video.id = "videoPlayer";
-		video.height = "480";
-		video.autoplay = "autoplay";
-		video.appendChild(ss);
+			//create video
+			let src = window.location.protocol + "//" + window.location.host + "/video";
+			let ss = document.createElement("SOURCE");
+			ss.type = "video/mp4";
+			ss.src = src;
 
-		document.querySelector("#video_div").appendChild(video);
+			let video = document.createElement("video");
+			video.id = "videoPlayer";
+			video.height = "480";
+			video.autoplay = "autoplay";
+			video.appendChild(ss);
+
+			document.querySelector("#video_div").appendChild(video);
+			button.innerText = "Quit Show";
+			// button.setAttribute("boo", "true");
+			console.log(boo);
+		} 
+
+		if (boo == "true") {
+			let video = document.getElementById("videoPlayer");
+			document.querySelector("#video_div").removeChild(video);
+			button.innerText = "Join Show";
+
+		}
+
 	}
+
 
 
 </script>
