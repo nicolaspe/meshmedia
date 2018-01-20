@@ -6,6 +6,15 @@
 
 		<link rel="stylesheet" href="css/style.css">
 		<script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
+
+		<script type="text/javascript">
+            function onLoad() {
+                var sec = parseInt(document.location.search.substr(1));
+                
+                if (!isNaN(sec))
+                    videoPlayer.currentTime = sec;
+            }
+        </script>
 	</head>
 	<body>
 		<header>
@@ -15,10 +24,19 @@
 		</header>
 		<br><br><br><br><br>
 		<div class="content">
-			<video id="videoPlayer" height="480" autoplay="autoplay" controls="false">
-	  			<source src="http://localhost:8500/video" type="video/mp4">
-			</video>
+			<video id="videoPlayer" height="480" autoplay="autoplay" onloadedmetadata="onLoad()"></video>
 		</div>
 		
+		<script type="text/javascript">
+			window.addEventListener('load', loadVid);
+
+			function loadVid(){
+				let src = window.location.protocol + "//" + window.location.host + "/video";
+				let ss = document.createElement("SOURCE");
+				ss.type = "video/mp4";
+				ss.src = src
+				document.querySelector("#videoPlayer").appendChild(ss);
+			}
+		</script>
 	</body>
 </html>
