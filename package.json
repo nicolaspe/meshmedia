@@ -1,0 +1,27 @@
+{
+  "name": "meshmedia",
+  "version": "0.0.1",
+  "description": "Mesh media project for the Unglitch Net Neutrality Hackathon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolaspe/meshmedia.git"
+  },
+  "keywords": [
+    "mesh",
+    "networks",
+    "media"
+  ],
+  "author": "Nouf Aljowaysir & Nicolas Escarpentier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolaspe/meshmedia/issues"
+  },
+  "homepage": "https://github.com/nicolaspe/meshmedia#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
