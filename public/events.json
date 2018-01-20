@@ -1,0 +1,65 @@
+{"events": [
+	{
+		"name" : "Movie Night: Kill Bill 1",
+		"date" : "20",
+		"month": "1",
+		"year" : "2018",
+		"start": "19:00",
+		"end"  : "21:30",
+		"desc" : "Tarantino nights presents: Kill Bill, part 1."
+	},
+	{
+		"name" : "Movie Night: Kill Bill 2",
+		"date" : "21",
+		"month": "1",
+		"year" : "2018",
+		"start": "19:00",
+		"end"  : "21:30",
+		"desc" : "Tarantino nights presents: Kill Bill, part 2."
+	},
+	{
+		"name" : "Movie Night: Inglorious Basterds",
+		"date" : "22",
+		"month": "1",
+		"year" : "2018",
+		"start": "19:00",
+		"end"  : "21:30",
+		"desc" : "Tarantino nights presents: Inglorious Basterds."
+	},
+	{
+		"name" : "Community talks: Recycling and clean streets",
+		"date" : "21",
+		"month": "1",
+		"year" : "2018",
+		"start": "12:00",
+		"end"  : "13:30",
+		"desc" : ""
+	},
+	{
+		"name" : "Party nights: Disco edition",
+		"date" : "26",
+		"month": "1",
+		"year" : "2018",
+		"start": "21:00",
+		"end"  : "23:55",
+		"desc" : "Tonight we join the community around the big shiny globe to the best disco tunes!"
+	},
+	{
+		"name" : "Community talks: Net Neutrality & virtual neighbourhoods",
+		"date" : "24",
+		"month": "1",
+		"year" : "2018",
+		"start": "16:00",
+		"end"  : "18:00",
+		"desc" : "How this community has worked for everyone and how to recreate them across the city."
+	},
+	{
+		"name" : "Poll results: Next week events",
+		"date" : "25",
+		"month": "1",
+		"year" : "2018",
+		"start": "20:00",
+		"end"  : "20:30",
+		"desc" : "The polls close and we'll give the results for the upcoming week!"
+	}]
+}
