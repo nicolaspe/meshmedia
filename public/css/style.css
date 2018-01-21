@@ -76,6 +76,7 @@ div{
 }
 .play_button:disabled{
 	background: #dddddd;
+	box-shadow: 0 4px #bbb;
 	cursor: not-allowed;
 }
 .play_button:disabled:hover{
