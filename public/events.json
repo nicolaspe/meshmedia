@@ -1,11 +1,20 @@
 {"events": [
 	{
+		"name" : "Live testing: Brooklyn 99",
+		"date" : "20",
+		"month": "1",
+		"year" : "2018",
+		"start": "19:00",
+		"end"  : "19:20",
+		"desc" : "How this community has worked for everyone and how to recreate them across the city."
+	},
+	{
 		"name" : "Movie Night: Kill Bill 1",
 		"date" : "20",
 		"month": "1",
 		"year" : "2018",
-		"start": "18:00",
-		"end"  : "21:30",
+		"start": "22:00",
+		"end"  : "23:50",
 		"desc" : "Tarantino nights presents: Kill Bill, part 1."
 	},
 	{
