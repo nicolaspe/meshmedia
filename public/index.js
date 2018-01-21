@@ -175,8 +175,8 @@ function updateTime(){
 		play_button.disabled = false;
 	}
 	if(nextEventEnd - d2 <= 0){
-		play_button.disabled = true;
 		buttonClick();
+		play_button.disabled = true;
 		checkNextEvent();
 	}
 }
