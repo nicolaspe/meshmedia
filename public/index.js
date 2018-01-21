@@ -72,14 +72,15 @@ function createCalendar(json){
 		let col = document.querySelector(id);
 
 		// get week day
+		p = document.createElement("P");
+		p.classList.add("cal_weekday");
 		let wday = future.getDay();
 		if(i == 0){
 			text = "Today";
 		} else{
 			text = weekday[(wday%7)];
 		}
-		p = document.createElement("P");
-		p.classList.add("cal_weekday");
+		
 		p.textContent = text;
 		col.appendChild(p);
 
