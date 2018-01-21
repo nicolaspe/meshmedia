@@ -10,3 +10,6 @@ Project built for the [Unglitch](http://unglitchthe.net/) Net Neutrality Hackath
 - https://medium.com/@daspinola/video-stream-with-node-js-and-html5-320b3191a6b6
 - https://www.w3schools.com/
 - https://stackoverflow.com/questions/11903545/how-to-disable-seeking-with-html5-video-tag
+- https://stackoverflow.com/questions/41282577/how-to-load-a-local-json-file
+- https://tympanus.net/Development/CreativeButtons/
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
