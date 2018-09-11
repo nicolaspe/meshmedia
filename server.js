@@ -8,7 +8,7 @@ var path = require('path');
 
 
 app.get('/video', function(req, res) {
-	const path = 'assets/B99.mp4';
+	const path = 'assets/nouf_io.mp4';
 	const stat = fs.statSync(path);
 	const fileSize = stat.size;
 	const range = req.headers.range;
@@ -17,7 +17,7 @@ app.get('/video', function(req, res) {
 	if (range) {
 		const parts = range.replace(/bytes=/, "").split("-")
 		const start = parseInt(parts[0], 10)
-		const end = parts[1] 
+		const end = parts[1]
 		? parseInt(parts[1], 10)
 		: fileSize-1
 		const chunksize = (end-start)+1

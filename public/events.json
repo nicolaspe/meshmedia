@@ -1,8 +1,8 @@
 {"events": [
 	{
 		"name" : "Live testing: Brooklyn 99",
-		"date" : "20",
-		"month": "1",
+		"date" : "07",
+		"month": "7",
 		"year" : "2018",
 		"start": "20:15",
 		"end"  : "20:40",
@@ -10,8 +10,8 @@
 	},
 	{
 		"name" : "Movie Night: Kill Bill 1",
-		"date" : "20",
-		"month": "1",
+		"date" : "8",
+		"month": "7",
 		"year" : "2018",
 		"start": "22:00",
 		"end"  : "23:50",
@@ -19,8 +19,8 @@
 	},
 	{
 		"name" : "Movie Night: Kill Bill 2",
-		"date" : "21",
-		"month": "1",
+		"date" : "9",
+		"month": "7",
 		"year" : "2018",
 		"start": "19:00",
 		"end"  : "21:30",
@@ -28,8 +28,8 @@
 	},
 	{
 		"name" : "Movie Night: Inglorious Basterds",
-		"date" : "22",
-		"month": "1",
+		"date" : "8",
+		"month": "7",
 		"year" : "2018",
 		"start": "19:00",
 		"end"  : "21:30",
@@ -37,8 +37,8 @@
 	},
 	{
 		"name" : "Community talks: Recycling and clean streets",
-		"date" : "21",
-		"month": "1",
+		"date" : "10",
+		"month": "7",
 		"year" : "2018",
 		"start": "12:00",
 		"end"  : "13:30",
@@ -47,7 +47,7 @@
 	{
 		"name" : "Party nights: Disco edition",
 		"date" : "26",
-		"month": "1",
+		"month": "7",
 		"year" : "2018",
 		"start": "21:00",
 		"end"  : "23:55",
@@ -55,8 +55,8 @@
 	},
 	{
 		"name" : "Community talks: Net Neutrality & virtual neighbourhoods",
-		"date" : "24",
-		"month": "1",
+		"date" : "9",
+		"month": "7",
 		"year" : "2018",
 		"start": "16:00",
 		"end"  : "18:00",
@@ -64,8 +64,8 @@
 	},
 	{
 		"name" : "Poll results: Next week events",
-		"date" : "25",
-		"month": "1",
+		"date" : "11",
+		"month": "7",
 		"year" : "2018",
 		"start": "20:00",
 		"end"  : "20:30",

@@ -26,7 +26,7 @@ function onLoad(){
 	document.querySelector("#join").disabled = true;
 	updateTime();
 
-	window.setInterval(updateTime, 1000);
+	window.setInterval(updateTime, 500);
 
 	video = document.createElement("video");
 	video.id = "videoPlayer";
@@ -80,7 +80,7 @@ function createCalendar(json){
 		} else{
 			text = weekday[(wday%7)];
 		}
-		
+
 		p.textContent = text;
 		col.appendChild(p);
 
@@ -112,7 +112,7 @@ function createCalendar(json){
 				col.appendChild(p);
 				col.appendChild(p2);
 			}
-		}	
+		}
 	}
 	// check next event
 	checkNextEvent();
@@ -126,7 +126,7 @@ function hideCal() {
 		//hide calender
 		let cal = document.getElementById('calendar');
 		cal.style.visibility = "hidden";
-	
+
 		//create video
 		let src = window.location.protocol + "//" + window.location.host + "/video";
 		let ss = document.createElement("SOURCE");
@@ -232,12 +232,12 @@ function checkNextEvent(){
 		// date objects
 		let evntDateS = new Date(yea,mon,day,evntTimeS[0],evntTimeS[1]);
 		let evntDateE = new Date(yea,mon,day,evntTimeE[0],evntTimeE[1]);
-		
+
 		// if there's nothing defaults to that one
 		if(nextEventStart == null){
 			nextEventStart = evntDateS;
 			nextEventEnd   = evntDateE;
-		} 
+		}
 		// if the saved event has already ended and this one hasn't, replace it
 		else if(nextEventEnd - d3 < 0 && evntDateE - d3 > 0){
 			nextEventStart = evntDateS;
